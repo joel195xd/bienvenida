@@ -1,31 +1,34 @@
-// define the libraries
 const Discord = require("discord.js");
-const express = require("express");
 const client = new Discord.Client();
 const config = require("./config.json");
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config(); // Asegúrate de que dotenv esté configurado correctamente
 
 
-// create an instance of express
-const app = express();
-const port = 3000; // choose a port for the express server
 
-// when the bot is ready
-client.on("ready", () => console.log("READY"));
 
-// define welcome "package"
+//when its ready log it
+client.on("ready", ()=>console.log("READY"));
+//define welcome "package"
 const welcome = require("./welcome");
 welcome(client);
-
-// start the bot
+//start the bot
 client.login(config.TOKEN);
 
-// create a simple express route
-app.get("/", (req, res) => {
-  res.send("Hello from the Express server!");
-});
+//NOTE:
+/*
+THis is the config.json File
 
-// start the express server
-app.listen(port, () => {
-  console.log(`Express server is running on http://localhost:${port}`);
-});
+"TOKEN"           ... is your Bot token
+"CHANNEL_WELCOME" ... is the Channel ID of your welcome channel
+"ROLES_WELCOME"   ... are all of the Role IDs you wanna add to the user when he joins the server, it must be an array and can be unlimited!
+
+{
+  "TOKEN":  "",
+  "CHANNEL_WELCOME": "",
+  "ROLES_WELCOME": ["",""]
+}
+
+*/
