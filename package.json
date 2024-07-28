@@ -6,8 +6,8 @@
   "dependencies": {
     "canvas": "^2.6.1",
     "discord.js": "^12.5.3",
-    "node.js": "^0.0.1-security",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "node.js": "^0.0.1-security"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
