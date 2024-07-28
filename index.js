@@ -1,25 +1,31 @@
-//define the libraries
+// define the libraries
 const Discord = require("discord.js");
-const express = require('express');
+const express = require("express");
 const client = new Discord.Client();
 const config = require("./config.json");
+require('dotenv').config(); // Asegúrate de que dotenv esté configurado correctamente
 
-// Configura Express para mantener el servicio activo
+
+// create an instance of express
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000; // choose a port for the express server
 
-app.get('/', (req, res) => {
-  res.send('Bot is running!');
-});
+// when the bot is ready
+client.on("ready", () => console.log("READY"));
 
-app.listen(port, () => {
-  console.log(`Servidor Express escuchando en el puerto ${port}`);
-});
-
-//when its ready log it
-client.on("ready", ()=>console.log("READY"));
-//define welcome "package"
+// define welcome "package"
 const welcome = require("./welcome");
 welcome(client);
-//start the bot
-client.login(process.env.TOKEN);
+
+// start the bot
+client.login(config.TOKEN);
+
+// create a simple express route
+app.get("/", (req, res) => {
+  res.send("Hello from the Express server!");
+});
+
+// start the express server
+app.listen(port, () => {
+  console.log(`Express server is running on http://localhost:${port}`);
+});
