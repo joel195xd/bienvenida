@@ -8,7 +8,7 @@ client.on("ready", ()=>console.log("READY"));
 const welcome = require("./welcome");
 welcome(client);
 //start the bot
-client.login(config.TOKEN);
+client.login(process.env.TOKEN);
 
 //NOTE:
 /*
