@@ -2,7 +2,7 @@ const config = require("./config");
 const Canvas = require("canvas");
 const Discord = require("discord.js");
 const path = require("path");
-
+const express = require('express');
 module.exports = function (client) {
     const description = {
         name: "WelcomeImages",
